@@ -22,7 +22,7 @@ public class RabbitProducer {
 
     private static final Logger logger = LoggerFactory.getLogger(RabbitProducer.class);
 
-    public RabbitProducer(RabbitTemplate rabbitTemplate){
+    public RabbitProducer(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 

@@ -32,46 +32,45 @@ public class RabbitConfig {
     private String queueNameJSON;
 
     @Bean
-    public Queue queue(){
+    public Queue queue() {
         return new Queue(queueName);
     }
 
     @Bean
-    public Queue queueJSON(){
+    public Queue queueJSON() {
         return new Queue(queueNameJSON);
     }
 
     @Bean
-    public TopicExchange topicExchange(){
+    public TopicExchange topicExchange() {
         return new TopicExchange(topicExchangeName);
     }
 
     @Bean
-    public TopicExchange topicExchangeJSON(){
+    public TopicExchange topicExchangeJSON() {
         return new TopicExchange(topicExchangeNameJSON);
     }
 
     @Bean
-    public Binding binding(){
+    public Binding binding() {
         return BindingBuilder.bind(queue())
                 .to(topicExchange()).with(routingKey);
     }
 
 
-
     @Bean
-    public Binding bindingJSON(){
+    public Binding bindingJSON() {
         return BindingBuilder.bind(queueJSON())
                 .to(topicExchangeJSON()).with(routingKeyJSON);
     }
 
     @Bean
-    public MessageConverter converter(){
+    public MessageConverter converter() {
         return new Jackson2JsonMessageConverter();
     }
 
     @Bean
-    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){
+    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory) {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(converter());
         return rabbitTemplate;

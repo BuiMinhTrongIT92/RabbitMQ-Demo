@@ -22,7 +22,7 @@ public class RabbitJSONProducer {
 
     private static final Logger logger = LoggerFactory.getLogger(RabbitProducer.class);
 
-    public RabbitJSONProducer(RabbitTemplate rabbitTemplate){
+    public RabbitJSONProducer(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 
@@ -30,6 +30,6 @@ public class RabbitJSONProducer {
     public void sendMessageJSON(User user) throws JsonProcessingException {
         ObjectMapper obj = new ObjectMapper();
         logger.info(String.format("Message sent -> %s", obj.writeValueAsString(user)));
-        rabbitTemplate.convertAndSend(topicExchangeNameJSON,routingKeyJSON, user);
+        rabbitTemplate.convertAndSend(topicExchangeNameJSON, routingKeyJSON, user);
     }
 }
