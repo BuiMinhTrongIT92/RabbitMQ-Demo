@@ -10,8 +10,8 @@ public class RabbitConsumer {
 
     private static final Logger logger = LoggerFactory.getLogger(RabbitConsumer.class);
 
-    @RabbitListener(queues = {"${rabbit.config.queueName}"})
-    public void consume(String message) {
-        logger.info(String.format("Received message -> %s", message));
-    }
+//    @RabbitListener(queues = {"${rabbit.config.queueName}"})
+//    public void consume(String message) {
+//        logger.info(String.format("Received message -> %s", message));
+//    }
 }
