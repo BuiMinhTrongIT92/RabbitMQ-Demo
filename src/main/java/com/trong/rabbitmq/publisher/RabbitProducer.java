@@ -4,16 +4,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RabbitProducer {
 
-    @Value("rabbit.config.topicExchangeName")
+    @Value("${rabbit.config.topicExchangeName}")
     private String topicExchangeName;
 
-    @Value("rabbit.config.routingKey")
+    @Value("${rabbit.config.routingKey}")
     private String routingKey;
 
-    private final RabbitTemplate rabbitTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     private static final Logger logger = LoggerFactory.getLogger(RabbitProducer.class);
 
