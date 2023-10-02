@@ -19,6 +19,7 @@ public class RabbitConsumer {
         logger.info(String.format("Received message -> %s", message));
     }
 
+
     @RabbitListener(queues = { "${rabbit.config.queueNameJSON}" })
     public void consume(Map<String, Object> user) throws JsonProcessingException {
         ObjectMapper obj = new ObjectMapper();
