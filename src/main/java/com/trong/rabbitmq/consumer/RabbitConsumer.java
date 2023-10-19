@@ -17,6 +17,7 @@ public class RabbitConsumer {
     @RabbitListener(queues = { "${rabbit.config.queueName}" })
     public void consume(String message) {
         logger.info(String.format("Received message -> %s", message));
+        System.out.println("22");
     }
 
     @RabbitListener(queues = { "${rabbit.config.queueNameJSON}" })
