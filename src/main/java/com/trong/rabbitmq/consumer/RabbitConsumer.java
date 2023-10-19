@@ -23,5 +23,7 @@ public class RabbitConsumer {
     public void consume(Map<String, Object> user) throws JsonProcessingException {
         ObjectMapper obj = new ObjectMapper();
         logger.info(String.format("Received message JSON -> %s", obj.writeValueAsString(user)));
+
+        System.out.println("ok");
     }
 }
