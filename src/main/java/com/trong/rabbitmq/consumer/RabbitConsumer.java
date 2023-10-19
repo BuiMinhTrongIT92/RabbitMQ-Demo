@@ -17,13 +17,11 @@ public class RabbitConsumer {
     @RabbitListener(queues = { "${rabbit.config.queueName}" })
     public void consume(String message) {
         logger.info(String.format("Received message -> %s", message));
-        System.out.println(2);
     }
 
     @RabbitListener(queues = { "${rabbit.config.queueNameJSON}" })
     public void consume(Map<String, Object> user) throws JsonProcessingException {
         ObjectMapper obj = new ObjectMapper();
         logger.info(String.format("Received message JSON -> %s", obj.writeValueAsString(user)));
-        System.out.println(1);
     }
 }
